@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f2eee9">
+  <title>AKIN</title>
+  <link rel="stylesheet" href="akin.css">
+</head>
+<body>
+  <main class="akin-app is-login" id="app">
+    <div class="time-atmosphere" aria-hidden="true">
+      <span class="color-field field-a"></span>
+      <span class="color-field field-b"></span>
+      <span class="color-field field-c"></span>
+      <span class="color-field field-d"></span>
+      <span class="light-drift"></span>
+    </div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <section class="login-world" id="loginWorld" aria-label="AKIN sign in">
+      <div class="login-brand">
+        <span class="brand-mark">AKIN</span>
+        <h1>A little space that feels like yours.</h1>
+        <p>Come in when you’re ready.</p>
+      </div>
+
+      <div class="login-card" id="loginCard">
+        <div class="login-choice" id="loginChoice">
+          <button class="entry-button entry-primary" id="showSignIn" type="button">Sign in</button>
+          <button class="entry-button entry-secondary" id="showCreate" type="button">Create an account</button>
+        </div>
+
+        <form class="login-form" id="signInForm" hidden>
+          <div class="form-heading">
+            <button class="form-back" type="button" data-login-back aria-label="Back">←</button>
+            <div>
+              <span class="form-kicker">Welcome back</span>
+              <h2>Sign in to AKIN</h2>
+            </div>
+          </div>
+          <label>Email<input type="email" autocomplete="email" placeholder="you@example.com" required></label>
+          <label>Password<input type="password" autocomplete="current-password" placeholder="••••••••" required></label>
+          <button class="entry-button entry-primary" type="submit">Continue</button>
+        </form>
+
+        <form class="login-form" id="createForm" hidden>
+          <div class="form-heading">
+            <button class="form-back" type="button" data-login-back aria-label="Back">←</button>
+            <div>
+              <span class="form-kicker">A new space</span>
+              <h2>Create your AKIN</h2>
+            </div>
+          </div>
+          <label>First name<input type="text" autocomplete="given-name" placeholder="Your name" required></label>
+          <label>Email<input type="email" autocomplete="email" placeholder="you@example.com" required></label>
+          <label>Password<input type="password" autocomplete="new-password" placeholder="Create a password" required></label>
+          <button class="entry-button entry-primary" type="submit">Begin</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="front-world app-world" id="frontWorld" aria-hidden="true">
+      <header class="topbar">
+        <div class="identity">
+          <span class="eyebrow">AKIN</span>
+          <span class="hello" id="timeGreeting">Good evening.</span>
+          <span class="subhello" id="timeMessage">What would help right now?</span>
+        </div>
+        <button class="profile-orb" type="button" aria-label="Profile"><span></span></button>
+      </header>
+
+      <section class="experience-shell">
+        <div class="carousel-wrap">
+          <div class="carousel" id="frontCarousel"></div>
+        </div>
+      </section>
+
+      <div class="wander-hint" id="wanderHint" aria-hidden="true">
+        <span></span><em>swipe to wander</em><span></span>
+      </div>
+    </section>
+
+    <section class="personal-world app-world" id="personalWorld" aria-hidden="true">
+      <button class="breakout-button" id="breakoutButton" type="button" aria-label="Leave personal AKIN and return to quick help">
+        <span class="breakout-arrow">←</span>
+        <span class="breakout-copy">back outside</span>
+      </button>
+
+      <header class="personal-header">
+        <span class="eyebrow">MY AKIN</span>
+        <h2>This part is yours.</h2>
+        <p>We’ll build the personal experience here next.</p>
+      </header>
+
+      <div class="personal-stage">
+        <article class="personal-card">
+          <div class="personal-card-glow" aria-hidden="true"></div>
+          <span class="card-kicker">Your space</span>
+          <h3>AKIN starts here.</h3>
+          <p>For now, this is the doorway. Your journey, history, choices and personal experiences will live behind this level.</p>
+          <div class="personal-placeholder">
+            <span></span><span></span><span></span>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="akin.js"></script>
+</body>
+</html>
