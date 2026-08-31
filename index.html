@@ -9,12 +9,11 @@
   <link rel="stylesheet" href="css/akin_base.css">
   <link rel="stylesheet" href="css/akin_login.css">
   <link rel="stylesheet" href="css/akin_cards.css">
+  <link rel="stylesheet" href="css/akin_detail.css">
   <link rel="stylesheet" href="css/akin_personal.css">
 </head>
-
 <body>
   <main class="akin-app is-login" id="app">
-
     <div class="time-atmosphere" aria-hidden="true">
       <span class="color-field field-a"></span>
       <span class="color-field field-b"></span>
@@ -25,319 +24,152 @@
 
     <div class="grain" aria-hidden="true"></div>
 
-
     <!--   login-->
-
     <section class="login-world" id="loginWorld" aria-label="AKIN sign in">
-
       <div class="login-brand">
         <span class="brand-mark">AKIN</span>
-
-        <h1>
-          A little space that feels like yours.
-        </h1>
-
-        <p>
-          Come in when you’re ready.
-        </p>
+        <h1>A little space that feels like yours.</h1>
+        <p>Come in when you’re ready.</p>
       </div>
 
       <div class="login-card">
-
         <div class="login-choice" id="loginChoice">
-
-          <button
-            class="entry-button entry-primary"
-            id="showSignIn"
-            type="button">
-            Sign in
-          </button>
-
-          <button
-            class="entry-button entry-secondary"
-            id="showCreate"
-            type="button">
-            Create an account
-          </button>
-
+          <button class="entry-button entry-primary" id="showSignIn" type="button">Sign in</button>
+          <button class="entry-button entry-secondary" id="showCreate" type="button">Create an account</button>
         </div>
 
-
         <form class="login-form" id="signInForm" hidden>
-
           <div class="form-heading">
-
-            <button
-              class="form-back"
-              type="button"
-              data-login-back
-              aria-label="Back">
-              ←
-            </button>
-
+            <button class="form-back" type="button" data-login-back aria-label="Back">←</button>
             <div>
-              <span class="form-kicker">
-                Welcome back
-              </span>
-
-              <h2>
-                Sign in to AKIN
-              </h2>
+              <span class="form-kicker">Welcome back</span>
+              <h2>Sign in to AKIN</h2>
             </div>
-
           </div>
 
           <label>
             Email
-
-            <input
-              type="email"
-              autocomplete="email"
-              placeholder="you@example.com"
-              required>
+            <input type="email" autocomplete="email" placeholder="you@example.com" required>
           </label>
 
           <label>
             Password
-
-            <input
-              type="password"
-              autocomplete="current-password"
-              placeholder="••••••••"
-              required>
+            <input type="password" autocomplete="current-password" placeholder="••••••••" required>
           </label>
 
-          <button
-            class="entry-button entry-primary"
-            type="submit">
-            Continue
-          </button>
-
+          <button class="entry-button entry-primary" type="submit">Continue</button>
         </form>
 
-
         <form class="login-form" id="createForm" hidden>
-
           <div class="form-heading">
-
-            <button
-              class="form-back"
-              type="button"
-              data-login-back
-              aria-label="Back">
-              ←
-            </button>
-
+            <button class="form-back" type="button" data-login-back aria-label="Back">←</button>
             <div>
-              <span class="form-kicker">
-                A new space
-              </span>
-
-              <h2>
-                Create your AKIN
-              </h2>
+              <span class="form-kicker">A new space</span>
+              <h2>Create your AKIN</h2>
             </div>
-
           </div>
 
           <label>
             First name
-
-            <input
-              type="text"
-              autocomplete="given-name"
-              placeholder="Your name"
-              required>
+            <input type="text" autocomplete="given-name" placeholder="Your name" required>
           </label>
 
           <label>
             Email
-
-            <input
-              type="email"
-              autocomplete="email"
-              placeholder="you@example.com"
-              required>
+            <input type="email" autocomplete="email" placeholder="you@example.com" required>
           </label>
 
           <label>
             Password
-
-            <input
-              type="password"
-              autocomplete="new-password"
-              placeholder="Create a password"
-              required>
+            <input type="password" autocomplete="new-password" placeholder="Create a password" required>
           </label>
 
-          <button
-            class="entry-button entry-primary"
-            type="submit">
-            Begin
-          </button>
-
+          <button class="entry-button entry-primary" type="submit">Begin</button>
         </form>
-
       </div>
-
     </section>
 
-
     <!--   front world-->
-
-    <section
-      class="front-world app-world"
-      id="frontWorld"
-      aria-hidden="true">
-
+    <section class="front-world app-world" id="frontWorld" aria-hidden="true">
       <header class="topbar">
-
         <div class="identity">
-
-          <span class="eyebrow">
-            AKIN
-          </span>
-
-          <span
-            class="hello"
-            id="timeGreeting">
-            Good evening.
-          </span>
-
-          <span
-            class="subhello"
-            id="timeMessage">
-            What would help right now?
-          </span>
-
+          <span class="eyebrow">AKIN</span>
+          <span class="hello" id="timeGreeting">Good evening.</span>
+          <span class="subhello" id="timeMessage">What would help right now?</span>
         </div>
 
-
-        <button
-          class="akin-entry-orb"
-          id="akinEntryButton"
-          type="button"
-          aria-label="Open AKIN">
-
+        <button class="akin-entry-orb" id="akinEntryButton" type="button" aria-label="Open AKIN">
           <span class="akin-entry-ring">
             <span class="akin-entry-dot"></span>
           </span>
-
         </button>
-
       </header>
-
 
       <section class="experience-shell">
-
         <div class="carousel-wrap">
-
-          <div
-            class="carousel"
-            id="frontCarousel">
-          </div>
-
+          <div class="carousel" id="frontCarousel"></div>
         </div>
-
       </section>
 
-
-      <div
-        class="wander-hint"
-        id="frontWanderHint"
-        aria-hidden="true">
-
+      <div class="wander-hint" id="frontWanderHint" aria-hidden="true">
         <span></span>
-
-        <em>
-          swipe to wander
-        </em>
-
+        <em>swipe to wander</em>
         <span></span>
-
       </div>
 
-    </section>
+      <!--   front lesson layer-->
+      <section class="front-detail-layer" id="frontDetailLayer" aria-hidden="true">
+        <article class="front-detail-card" id="frontDetailCard">
+          <div class="front-detail-surface" id="frontDetailSurface"></div>
 
+          <button class="detail-back" id="frontDetailBack" type="button" aria-label="Back">←</button>
+
+          <div class="front-detail-content">
+            <span class="detail-category" id="frontDetailCategory"></span>
+
+            <h2 class="detail-title" id="frontDetailTitle"></h2>
+
+            <p class="detail-lead" id="frontDetailLead"></p>
+
+            <div class="detail-body" id="frontDetailBody"></div>
+
+            <div class="detail-action">
+              <span class="detail-action-label">Try this now</span>
+              <p id="frontDetailAction"></p>
+            </div>
+          </div>
+        </article>
+      </section>
+    </section>
 
     <!--   personal akin world-->
-
-    <section
-      class="personal-world app-world"
-      id="personalWorld"
-      aria-hidden="true">
-
-
-      <button
-        class="breakout-button"
-        id="breakoutButton"
-        type="button"
-        aria-label="Return">
-
-        <span class="breakout-arrow">
-          ←
-        </span>
-
+    <section class="personal-world app-world" id="personalWorld" aria-hidden="true">
+      <button class="breakout-button" id="breakoutButton" type="button" aria-label="Return">
+        <span class="breakout-arrow">←</span>
       </button>
 
-
       <header class="personal-topbar">
-
         <div class="identity">
-
-          <span class="eyebrow">
-            MY AKIN
-          </span>
-
-          <span class="hello">
-            This part is yours.
-          </span>
-
-          <span class="subhello">
-            Your personal space.
-          </span>
-
+          <span class="eyebrow">MY AKIN</span>
+          <span class="hello">This part is yours.</span>
+          <span class="subhello">Your personal space.</span>
         </div>
-
       </header>
 
-
       <section class="experience-shell personal-shell">
-
         <div class="carousel-wrap">
-
-          <div
-            class="carousel"
-            id="personalCarousel">
-          </div>
-
+          <div class="carousel" id="personalCarousel"></div>
         </div>
-
       </section>
 
-
-      <div
-        class="wander-hint"
-        id="personalWanderHint"
-        aria-hidden="true">
-
+      <div class="wander-hint" id="personalWanderHint" aria-hidden="true">
         <span></span>
-
-        <em>
-          swipe to wander
-        </em>
-
+        <em>swipe to wander</em>
         <span></span>
-
       </div>
-
     </section>
-
   </main>
 
-  <script
-    type="module"
-    src="js/akin_app.js">
-  </script>
+  <script type="module" src="js/akin_app.js"></script>
 </body>
 </html>
