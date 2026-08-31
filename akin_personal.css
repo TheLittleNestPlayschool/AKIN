@@ -1,0 +1,242 @@
+/*   akin entrance*/
+
+.akin-entry-orb{
+  width:44px;
+  height:44px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.78);
+
+  border-radius:50%;
+
+  display:grid;
+  place-items:center;
+
+  padding:0;
+
+  background:
+    rgba(255,255,255,.46);
+
+  backdrop-filter:
+    blur(18px);
+
+  box-shadow:
+    0 8px 26px
+    rgba(66,56,50,.08);
+
+  transition:
+    transform .28s ease,
+    background .28s ease;
+}
+
+
+.akin-entry-orb:active{
+  transform:
+    scale(.93);
+}
+
+
+.akin-entry-ring{
+  width:18px;
+  height:18px;
+
+  display:grid;
+  place-items:center;
+
+  border:
+    1px solid
+    rgba(71,63,58,.15);
+
+  border-radius:50%;
+}
+
+
+.akin-entry-dot{
+  width:7px;
+  height:7px;
+
+  border-radius:50%;
+
+  background:
+    rgba(71,63,58,.62);
+
+  box-shadow:
+    0 0 0 4px
+    rgba(71,63,58,.06);
+}
+
+
+/*   front becomes previous level*/
+
+.front-world.is-behind{
+  pointer-events:none;
+
+  opacity:.76 !important;
+
+  filter:
+    blur(.3px);
+}
+
+
+.front-world.is-behind
+.topbar,
+.front-world.is-behind
+.wander-hint{
+  opacity:0;
+
+  transition:
+    opacity .45s ease;
+}
+
+
+.front-world.is-behind
+.carousel{
+  transform:
+    translateX(43vw)
+    scale(.68);
+}
+
+
+.front-world.is-behind
+.experience:not([data-pos="0"]){
+  opacity:0 !important;
+
+  pointer-events:none !important;
+
+  filter:
+    blur(8px) !important;
+}
+
+
+.front-world.is-behind
+.experience[data-pos="0"]{
+  pointer-events:none !important;
+}
+
+
+.front-world.is-behind
+.experience[data-pos="0"]
+.card{
+  box-shadow:
+    0 20px 56px
+    rgba(61,52,47,.11);
+}
+
+
+/*   personal world*/
+
+.personal-world{
+  z-index:30;
+
+  transform:
+    translate3d(
+      -12%,
+      18px,
+      -40px
+    )
+    scale(.965);
+
+  filter:
+    blur(8px);
+}
+
+
+.personal-world.is-visible{
+  opacity:1;
+
+  pointer-events:auto;
+
+  transform:
+    translate3d(
+      0,
+      0,
+      0
+    )
+    scale(1);
+
+  filter:
+    blur(0);
+}
+
+
+.personal-topbar{
+  padding-left:54px;
+}
+
+
+.personal-shell{
+  position:relative;
+}
+
+
+/*   breakout*/
+
+.breakout-button{
+  position:absolute;
+
+  top:
+    max(
+      20px,
+      env(safe-area-inset-top)
+    );
+
+  left:18px;
+
+  z-index:46;
+
+  width:42px;
+  height:42px;
+
+  display:grid;
+  place-items:center;
+
+  padding:0;
+
+  border:
+    1px solid
+    rgba(255,255,255,.76);
+
+  border-radius:50%;
+
+  background:
+    rgba(255,255,255,.55);
+
+  backdrop-filter:
+    blur(20px);
+
+  box-shadow:
+    0 9px 28px
+    rgba(62,53,48,.09);
+
+  transition:
+    transform .20s ease,
+    background .20s ease;
+}
+
+
+.breakout-button:active{
+  transform:
+    scale(.92);
+}
+
+
+.breakout-arrow{
+  font-size:18px;
+  line-height:1;
+
+  transform:
+    translateY(-1px);
+}
+
+
+@media(min-width:700px){
+
+  .front-world.is-behind
+  .carousel{
+    transform:
+      translateX(36vw)
+      scale(.72);
+  }
+
+}
