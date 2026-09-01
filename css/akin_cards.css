@@ -1,4 +1,3 @@
-
 /*   card stage*/
 .experience-shell{min-height:100dvh;display:flex;flex-direction:column;justify-content:center;padding:max(90px,calc(env(safe-area-inset-top) + 70px)) 0 max(80px,calc(env(safe-area-inset-bottom) + 64px))}
 .carousel-wrap{position:relative;width:100%;min-height:min(61vh,590px);display:flex;align-items:center;touch-action:pan-y}
@@ -10,15 +9,6 @@
 .card-surface.has-photo{background-image:var(--card-image);background-size:cover;background-position:center;background-repeat:no-repeat}
 .experience[data-pos="0"] .card-surface{transform:scale(1.055)}
 .card-surface::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(18,16,15,.06) 12%,rgba(25,22,20,.10) 42%,rgba(31,27,25,.84) 100%)}
-/*   active gold trace*/
-.card-gold-trace{position:absolute;inset:0;z-index:5;width:100%;height:100%;pointer-events:none;overflow:visible}
-.gold-path{fill:none;stroke:rgba(219,183,104,.95);stroke-width:.42;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:100;filter:drop-shadow(0 0 2px rgba(255,224,153,.42))}
-.card-gold-star{position:absolute;right:1.2%;bottom:1.1%;z-index:6;font-size:10px;line-height:1;color:rgba(228,193,112,.98);opacity:0;transform:scale(.45) rotate(-18deg);text-shadow:0 0 5px rgba(255,229,168,.62);pointer-events:none}
-.experience[data-pos="0"] .gold-path-clockwise{animation:goldTrace 1.55s var(--ease) .08s forwards}
-.experience[data-pos="0"] .gold-path-counter{animation:goldTrace 1.55s var(--ease) .08s forwards}
-.experience[data-pos="0"] .card-gold-star{animation:goldStar .62s ease 1.52s forwards}
-@keyframes goldTrace{to{stroke-dashoffset:0}}
-@keyframes goldStar{0%{opacity:0;transform:scale(.45) rotate(-18deg)}52%{opacity:1;transform:scale(1.28) rotate(8deg)}100%{opacity:.9;transform:scale(.88) rotate(0)}}
 .card-type{position:absolute;top:18px;right:18px;z-index:3;padding:8px 11px;border:1px solid rgba(255,255,255,.23);border-radius:999px;background:rgba(255,255,255,.15);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:rgba(255,255,255,.88);font-size:10px;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
 .card-content{position:absolute;inset:auto 0 0;padding:56px 24px 25px;color:white;z-index:2}
 .card-kicker{display:inline-flex;align-items:center;gap:8px;margin-bottom:11px;font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.78)}
@@ -31,4 +21,3 @@
 .wander-hint span{width:24px;height:1px;background:rgba(52,47,43,.20)}
 .wander-hint em{font-style:normal}
 @media(min-width:700px){.experience-shell{max-width:760px;margin:0 auto}.carousel{height:min(62vh,610px)}.experience{width:min(54vw,430px)}}
-@media(prefers-reduced-motion:reduce){.experience[data-pos="0"] .gold-path{stroke-dashoffset:0;animation:none!important}.experience[data-pos="0"] .card-gold-star{opacity:.85;transform:scale(.88);animation:none!important}}
