@@ -1,4 +1,3 @@
-
 /*   reusable spatial card carousel*/
 export function createCardCarousel({element,cards,hint=null,onActivate=null}){
   let activeIndex=0,enabled=true,hasInteracted=false,backButton=null,moreButton=null;
@@ -61,6 +60,7 @@ export function createCardCarousel({element,cards,hint=null,onActivate=null}){
         card.style.pointerEvents="none";
         card.style.transform=`translate(-50%,-50%) translateX(${offset*64}%) scale(.74)`;
         card.style.filter="blur(9px)";
+        card.style.zIndex="1";
         card.dataset.pos=offset;
         return;
       }
@@ -73,7 +73,7 @@ export function createCardCarousel({element,cards,hint=null,onActivate=null}){
       card.style.pointerEvents=offset===0&&enabled?"auto":"none";
       card.style.filter=offset===0?"blur(0)":"blur(1.4px)";
       card.style.transform=`translate(-50%,-50%) translate3d(${x}%,${y}px,${z}px) rotate(${rotate}deg) scale(${scale})`;
-      card.style.zIndex=10-Math.abs(offset);
+      card.style.zIndex=offset===0?"10":"7";
       card.dataset.pos=offset;
     });
     syncNavigation();
