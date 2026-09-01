@@ -1,4 +1,3 @@
-
 /*   reusable spatial card carousel*/
 export function createCardCarousel({element,cards,hint=null,onActivate=null}){
   let activeIndex=0,startX=0,deltaX=0,dragging=false,enabled=true,hasInteracted=false;
@@ -20,7 +19,7 @@ export function createCardCarousel({element,cards,hint=null,onActivate=null}){
       article.dataset.cardId=item.id;
       const surface=cardSurfaces[index];
       const surfaceStyle=surface.type==="photo"?`--card-image:url('${surface.value}')`:`--card-bg:${surface.value}`;
-      article.innerHTML=`<div class="card"><div class="card-surface ${surface.type==="photo"?"has-photo":""}" style="${surfaceStyle}"></div><div class="card-type">${item.type}</div><div class="card-content"><div class="card-kicker">${item.kicker}</div><h2 class="card-title">${item.title}</h2><p class="card-copy">${item.copy}</p><div class="card-pills">${item.pills.map(pill=>`<span class="card-pill">${pill}</span>`).join("")}</div></div></div>`;
+      article.innerHTML=`<div class="card"><div class="card-surface ${surface.type==="photo"?"has-photo":""}" style="${surfaceStyle}"></div><svg class="card-gold-trace" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="gold-path gold-path-clockwise" pathLength="100" d="M8 .7 H92 Q99.3 .7 99.3 8 V92"/><path class="gold-path gold-path-counter" pathLength="100" d="M8 .7 Q.7 .7 .7 8 V92 Q.7 99.3 8 99.3 H92"/></svg><span class="card-gold-star" aria-hidden="true">✦</span><div class="card-type">${item.type}</div><div class="card-content"><div class="card-kicker">${item.kicker}</div><h2 class="card-title">${item.title}</h2><p class="card-copy">${item.copy}</p><div class="card-pills">${item.pills.map(pill=>`<span class="card-pill">${pill}</span>`).join("")}</div></div></div>`;
       article.addEventListener("click",()=>{
         if(!enabled||Math.abs(deltaX)>=8||Number(article.dataset.index)!==activeIndex)return;
         if(typeof onActivate==="function")onActivate(item,activeIndex);
