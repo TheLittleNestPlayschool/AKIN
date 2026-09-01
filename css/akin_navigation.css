@@ -1,0 +1,15 @@
+/*   standard akin navigation*/
+.akin-nav-handle{position:absolute;top:50%;z-index:46;display:flex;align-items:center;justify-content:center;width:58px;height:76%;min-height:220px;max-height:330px;padding:16px 7px;appearance:none;-webkit-appearance:none;border:0;border-radius:0;background:#fff;color:rgba(73,76,82,.98);font:inherit;cursor:pointer;pointer-events:auto;touch-action:manipulation;overflow:hidden;-webkit-tap-highlight-color:transparent;filter:drop-shadow(0 12px 22px rgba(49,57,65,.18)) drop-shadow(0 0 7px rgba(255,255,255,.50));transition:opacity .4s ease,filter .4s ease,transform .2s ease;animation:akinNavPulse 3.4s ease-in-out infinite}
+.akin-nav-handle.is-back{left:0;transform:translateY(-50%);clip-path:polygon(42% 0,100% 0,100% 100%,42% 100%,0 50%)}
+.akin-nav-handle.is-more{right:0;transform:translateY(-50%);clip-path:polygon(0 0,58% 0,100% 50%,58% 100%,0 100%)}
+.akin-nav-handle:active{transform:translateY(-50%) scale(.97)}
+.akin-nav-label{position:relative;z-index:2;display:block;margin:0;padding:0;font-size:15px;line-height:1;font-weight:700;letter-spacing:.42em;text-transform:uppercase;color:rgba(72,76,83,.98);writing-mode:vertical-rl;text-orientation:upright;white-space:nowrap;text-align:center;user-select:none;text-shadow:0 1px 0 rgba(255,255,255,.8)}
+@keyframes akinNavPulse{0%,68%,100%{filter:drop-shadow(0 12px 22px rgba(49,57,65,.18)) drop-shadow(0 0 7px rgba(255,255,255,.50))}80%{filter:drop-shadow(0 15px 28px rgba(49,57,65,.22)) drop-shadow(0 0 12px rgba(255,255,255,.92))}}
+/*   lesson navigation*/
+.front-detail-card>.akin-nav-handle{z-index:6}
+.front-detail-card>.akin-nav-handle.is-back{left:0}
+.front-detail-content{padding-left:72px}
+/*   private mode breakout*/
+.personal-world>.akin-nav-handle.is-back{position:absolute;left:0;top:50%;width:58px;height:min(52vh,330px);min-height:220px;max-height:330px;border:0;border-radius:0;background:#fff;transform:translateY(-50%);box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+@media(max-width:420px){.akin-nav-handle{width:54px;height:75%;min-height:205px;max-height:300px;padding:14px 6px}.akin-nav-label{font-size:15px;letter-spacing:.46em}.front-detail-content{padding-left:68px}.personal-world>.akin-nav-handle.is-back{width:54px}}
+@media(prefers-reduced-motion:reduce){.akin-nav-handle{animation:none!important}}
