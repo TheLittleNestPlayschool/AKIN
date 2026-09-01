@@ -1,3 +1,4 @@
+
 /*   reusable spatial card carousel*/
 export function createCardCarousel({element,cards,hint=null,onActivate=null}){
   let activeIndex=0,enabled=true,hasInteracted=false;
