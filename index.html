@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,19 +21,8 @@
       <div class="login-brand"><span class="brand-mark">AKIN</span><h1>A little space that feels like yours.</h1><p>Come in when you’re ready.</p></div>
       <div class="login-card">
         <div class="login-choice" id="loginChoice"><button class="entry-button entry-primary" id="showSignIn" type="button">Sign in</button><button class="entry-button entry-secondary" id="showCreate" type="button">Create an account</button></div>
-        <form class="login-form" id="signInForm" hidden>
-          <div class="form-heading"><button class="form-back" type="button" data-login-back aria-label="Back">←</button><div><span class="form-kicker">Welcome back</span><h2>Sign in to AKIN</h2></div></div>
-          <label>Email<input type="email" autocomplete="email" placeholder="you@example.com" required></label>
-          <label>Password<input type="password" autocomplete="current-password" placeholder="••••••••" required></label>
-          <button class="entry-button entry-primary" type="submit">Continue</button>
-        </form>
-        <form class="login-form" id="createForm" hidden>
-          <div class="form-heading"><button class="form-back" type="button" data-login-back aria-label="Back">←</button><div><span class="form-kicker">A new space</span><h2>Create your AKIN</h2></div></div>
-          <label>First name<input type="text" autocomplete="given-name" placeholder="Your name" required></label>
-          <label>Email<input type="email" autocomplete="email" placeholder="you@example.com" required></label>
-          <label>Password<input type="password" autocomplete="new-password" placeholder="Create a password" required></label>
-          <button class="entry-button entry-primary" type="submit">Begin</button>
-        </form>
+        <form class="login-form" id="signInForm" hidden><div class="form-heading"><button class="form-back" type="button" data-login-back aria-label="Back">←</button><div><span class="form-kicker">Welcome back</span><h2>Sign in to AKIN</h2></div></div><label>Email<input type="email" autocomplete="email" placeholder="you@example.com" required></label><label>Password<input type="password" autocomplete="current-password" placeholder="••••••••" required></label><button class="entry-button entry-primary" type="submit">Continue</button></form>
+        <form class="login-form" id="createForm" hidden><div class="form-heading"><button class="form-back" type="button" data-login-back aria-label="Back">←</button><div><span class="form-kicker">A new space</span><h2>Create your AKIN</h2></div></div><label>First name<input type="text" autocomplete="given-name" placeholder="Your name" required></label><label>Email<input type="email" autocomplete="email" placeholder="you@example.com" required></label><label>Password<input type="password" autocomplete="new-password" placeholder="Create a password" required></label><button class="entry-button entry-primary" type="submit">Begin</button></form>
       </div>
     </section>
     <!--   public mode-->
@@ -46,7 +34,7 @@
       <section class="front-detail-layer" id="frontDetailLayer" aria-hidden="true">
         <div class="front-detail-wrap">
           <button class="detail-nav-handle" id="frontDetailBack" type="button" aria-label="Go back"><span class="card-nav-handle-label">Back</span></button>
-          <article class="front-detail-card" id="frontDetailCard"><div class="front-detail-surface" id="frontDetailSurface"></div><div class="front-detail-content"><span class="detail-category" id="frontDetailCategory"></span><h2 class="detail-title" id="frontDetailTitle"></h2><p class="detail-lead" id="frontDetailLead"></p><div class="detail-body" id="frontDetailBody"></div><div class="detail-action"><span class="detail-action-label">Try this now</span><p id="frontDetailAction"></p></div></div></article>
+          <article class="front-detail-card" id="frontDetailCard"><div class="front-detail-surface" id="frontDetailSurface"></div><svg class="detail-gold-trace" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="detail-gold-path detail-gold-clockwise" pathLength="100" d="M8 .7 H92 Q99.3 .7 99.3 8 V92"/><path class="detail-gold-path detail-gold-counter" pathLength="100" d="M8 .7 Q.7 .7 .7 8 V92 Q.7 99.3 8 99.3 H92"/></svg><span class="detail-gold-star" aria-hidden="true">✦</span><div class="front-detail-content"><span class="detail-category" id="frontDetailCategory"></span><h2 class="detail-title" id="frontDetailTitle"></h2><p class="detail-lead" id="frontDetailLead"></p><div class="detail-body" id="frontDetailBody"></div><div class="detail-action"><span class="detail-action-label">Try this now</span><p id="frontDetailAction"></p></div></div></article>
         </div>
       </section>
     </section>
