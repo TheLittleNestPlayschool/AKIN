@@ -1,7 +1,6 @@
-
 /*   reusable spatial card carousel*/
 export function createCardCarousel({element,cards,hint=null,onActivate=null}){
-  let activeIndex=0,enabled=true,hasInteracted=false;
+  let activeIndex=0,enabled=true,hasInteracted=false,backButton=null,moreButton=null;
   const cardSurfaces=cards.map(item=>{
     if(Array.isArray(item.photos)&&item.photos.length){
       const photo=item.photos[Math.floor(Math.random()*item.photos.length)];
@@ -25,13 +24,10 @@ export function createCardCarousel({element,cards,hint=null,onActivate=null}){
       });
       element.appendChild(article);
     });
+    backButton=createNavigationButton("back");
+    moreButton=createNavigationButton("more");
+    element.append(backButton,moreButton);
     render();
-  }
-  function syncNavigation(){
-    element.querySelectorAll(":scope > .carousel-nav-handle").forEach(button=>button.remove());
-    if(!enabled)return;
-    if(activeIndex>0)element.appendChild(createNavigationButton("back"));
-    if(activeIndex<cards.length-1)element.appendChild(createNavigationButton("more"));
   }
   function createNavigationButton(direction){
     const isMore=direction==="more";
@@ -40,8 +36,20 @@ export function createCardCarousel({element,cards,hint=null,onActivate=null}){
     button.className=`carousel-nav-handle carousel-nav-${direction}`;
     button.setAttribute("aria-label",isMore?"Show more":"Go back");
     button.innerHTML=`<span class="card-nav-handle-label">${isMore?"More":"Back"}</span>`;
-    button.addEventListener("click",event=>{event.preventDefault();event.stopPropagation();move(isMore?1:-1);});
+    button.addEventListener("click",event=>{
+      event.preventDefault();
+      event.stopPropagation();
+      move(isMore?1:-1);
+    });
     return button;
+  }
+  function syncNavigation(){
+    const canBack=enabled&&activeIndex>0;
+    const canMore=enabled&&activeIndex<cards.length-1;
+    backButton?.classList.toggle("is-visible",canBack);
+    moreButton?.classList.toggle("is-visible",canMore);
+    if(backButton)backButton.disabled=!canBack;
+    if(moreButton)moreButton.disabled=!canMore;
   }
   function render(){
     const cardElements=[...element.querySelectorAll(".experience")];
