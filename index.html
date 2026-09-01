@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,13 +43,15 @@
       <div class="wander-hint" id="frontWanderHint" aria-hidden="true"><span></span><em>swipe to wander</em><span></span></div>
       <!--   public lesson layer-->
       <section class="front-detail-layer" id="frontDetailLayer" aria-hidden="true">
-        <article class="front-detail-card" id="frontDetailCard"><div class="front-detail-surface" id="frontDetailSurface"></div><button class="detail-back" id="frontDetailBack" type="button" aria-label="Back">←</button><div class="front-detail-content"><span class="detail-category" id="frontDetailCategory"></span><h2 class="detail-title" id="frontDetailTitle"></h2><p class="detail-lead" id="frontDetailLead"></p><div class="detail-body" id="frontDetailBody"></div><div class="detail-action"><span class="detail-action-label">Try this now</span><p id="frontDetailAction"></p></div></div></article>
+        <div class="front-detail-wrap">
+          <button class="detail-nav-handle" id="frontDetailBack" type="button" aria-label="Go back"><span class="card-nav-handle-label">Back</span></button>
+          <article class="front-detail-card" id="frontDetailCard"><div class="front-detail-surface" id="frontDetailSurface"></div><div class="front-detail-content"><span class="detail-category" id="frontDetailCategory"></span><h2 class="detail-title" id="frontDetailTitle"></h2><p class="detail-lead" id="frontDetailLead"></p><div class="detail-body" id="frontDetailBody"></div><div class="detail-action"><span class="detail-action-label">Try this now</span><p id="frontDetailAction"></p></div></div></article>
+        </div>
       </section>
     </section>
     <!--   private mode-->
     <section class="personal-world app-world" id="personalWorld" aria-hidden="true">
-      <button class="breakout-button" id="breakoutButton" type="button" aria-label="Return to public mode"><span class="breakout-arrow">←</span></button>
-      <header class="personal-topbar"><div class="identity"><span class="eyebrow">MY AKIN</span><span class="hello">This part is yours.</span><span class="subhello">Your personal space.</span></div></header>
+      <header class="personal-topbar"><div class="identity"><span class="eyebrow">MY AKIN</span><span class="hello">This part is yours.</span><span class="subhello">Your personal space.</span></div><button class="private-exit-orb" id="breakoutButton" type="button" aria-label="Return to public mode"><span class="private-exit-ring"><span class="private-exit-mark">×</span></span></button></header>
       <section class="experience-shell personal-shell"><div class="carousel-wrap"><div class="carousel" id="personalCarousel"></div></div></section>
       <div class="wander-hint" id="personalWanderHint" aria-hidden="true"><span></span><em>swipe to wander</em><span></span></div>
     </section>
