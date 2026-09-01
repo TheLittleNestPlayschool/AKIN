@@ -1,3 +1,4 @@
+
 /*   standard akin card navigation*/
 .card-nav-handle,.detail-nav-handle{position:absolute;top:50%;z-index:32;display:flex;align-items:center;justify-content:center;width:58px;height:76%;min-height:220px;max-height:330px;padding:16px 7px;appearance:none;-webkit-appearance:none;border:0;border-radius:0;background:#fff;color:rgba(73,76,82,.98);font:inherit;cursor:pointer;pointer-events:auto;touch-action:manipulation;overflow:hidden;-webkit-tap-highlight-color:transparent;filter:drop-shadow(0 12px 22px rgba(49,57,65,.18)) drop-shadow(0 0 7px rgba(255,255,255,.50));transition:opacity .25s ease,filter .25s ease,background .25s ease,transform .18s ease;animation:akinNavPulse 3.4s ease-in-out infinite;outline:none}
 .card-nav-handle:hover,.detail-nav-handle:hover,.card-nav-handle:focus-visible,.detail-nav-handle:focus-visible{background:#fffdf8;filter:drop-shadow(0 15px 28px rgba(49,57,65,.24)) drop-shadow(0 0 14px rgba(255,244,215,.95))}
