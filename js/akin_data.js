@@ -1,5 +1,4 @@
 /*   front cards*/
-
 export const frontCards=[
   {
     id:"stress",
