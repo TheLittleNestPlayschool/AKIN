@@ -12,6 +12,14 @@
 /*   detail background*/
 .front-detail-surface{position:absolute;inset:0;background:var(--detail-bg)}
 .front-detail-surface::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(19,21,20,.10) 0%,rgba(24,25,24,.35) 35%,rgba(24,25,23,.90) 100%)}
+/*   persistent gold trace*/
+.detail-gold-trace{position:absolute;inset:0;z-index:4;width:100%;height:100%;pointer-events:none;overflow:visible}
+.detail-gold-path{fill:none;stroke:#d5a642;stroke-width:1.15;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:100;filter:drop-shadow(0 0 3px rgba(232,190,89,.5))}
+.front-detail-layer.is-visible .detail-gold-clockwise,.front-detail-layer.is-visible .detail-gold-counter{animation:detailGoldTrace 1.55s var(--ease) .08s forwards}
+.detail-gold-star{position:absolute;right:.1%;bottom:-.2%;z-index:5;font-size:21px;line-height:1;color:#d5a642;opacity:0;transform:scale(.35) rotate(-18deg);transform-origin:center;text-shadow:0 0 7px rgba(240,201,103,.75);pointer-events:none}
+.front-detail-layer.is-visible .detail-gold-star{animation:detailGoldStar .72s ease 1.5s forwards}
+@keyframes detailGoldTrace{to{stroke-dashoffset:0}}
+@keyframes detailGoldStar{0%{opacity:0;transform:scale(.35) rotate(-18deg)}55%{opacity:1;transform:scale(1.22) rotate(8deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
 /*   detail content*/
 .front-detail-content{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;overflow-y:auto;padding:76px 25px 25px;color:white;scrollbar-width:none}
 .front-detail-content::-webkit-scrollbar{display:none}
@@ -25,3 +33,4 @@
 .detail-action-label{display:block;margin-bottom:5px;font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.58)}
 .detail-action p{margin:0;font-size:12px;line-height:1.48;color:rgba(255,255,255,.92)}
 @media(min-width:700px){.front-world.is-detail-open .carousel{transform:translateX(37vw) scale(.78)}.front-detail-wrap{width:min(54vw,430px);height:min(62vh,610px)}}
+@media(prefers-reduced-motion:reduce){.detail-gold-path{stroke-dashoffset:0;animation:none!important}.detail-gold-star{opacity:1;transform:scale(1);animation:none!important}}
