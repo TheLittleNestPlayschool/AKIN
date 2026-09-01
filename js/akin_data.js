@@ -8,7 +8,7 @@ export const frontCards=[
     title:"I need a minute.",
     copy:"Slow things down and give yourself a little room to breathe.",
     pills:["2 minutes","reset"],
-    background:"radial-gradient(circle at 30% 18%,#cdd9d3 0,#9eaea7 35%,#687a74 72%,#51615d 100%)",
+    photos:["./photos/stressandcalm1.png","./photos/stressandcalm2.png","./photos/stressandcalm3.png","./photos/stressandcalm4.png"],
     lesson:{
       title:"Make the moment smaller.",
       lead:"When everything feels loud at once, the first job is not to solve everything. It is simply to create a little space between you and the pressure.",
@@ -26,7 +26,7 @@ export const frontCards=[
     title:"I need to believe in myself a little.",
     copy:"A small reminder of what you already carry with you.",
     pills:["encouragement","self-worth"],
-    background:"radial-gradient(circle at 70% 10%,#d9cfc7 0,#b9a69a 39%,#806f66 73%,#655850 100%)",
+    photos:["./photos/confidence1.png","./photos/confidence3.png","./photos/confidence4.png"],
     lesson:{
       title:"Look for evidence, not the loudest doubt.",
       lead:"Confidence does not always feel strong. Sometimes it is simply remembering that you have already handled things you once thought you could not.",
@@ -44,7 +44,7 @@ export const frontCards=[
     title:"Help me get moving.",
     copy:"When starting feels harder than it should, begin with something small.",
     pills:["simple","one step"],
-    background:"radial-gradient(circle at 25% 15%,#ddd7bd 0,#b7ad84 40%,#817955 72%,#676044 100%)",
+    photos:["./photos/motivation1.png","./photos/motivation2.png","./photos/motivation3.png","./photos/motivation4.png"],
     lesson:{
       title:"Lower the starting line.",
       lead:"Waiting to feel motivated can keep you waiting. Very often, motivation arrives after you have already begun.",
@@ -62,7 +62,7 @@ export const frontCards=[
     title:"Something is bothering me.",
     copy:"Take a moment to think about what happened and what you really need.",
     pills:["reflect","perspective"],
-    background:"radial-gradient(circle at 72% 12%,#d9cedd 0,#b6a7bb 38%,#7b6d82 72%,#5f5365 100%)",
+    photos:["./photos/relationships1.png","./photos/relationships2.png","./photos/relationships3.png","./photos/relationships4.png"],
     lesson:{
       title:"Separate what happened from what it meant.",
       lead:"When something happens between people, the event itself and the meaning we give it can quickly become mixed together.",
@@ -80,7 +80,7 @@ export const frontCards=[
     title:"I need to get back on track.",
     copy:"Clear a little noise and decide what deserves your attention today.",
     pills:["focus","today"],
-    background:"radial-gradient(circle at 28% 12%,#d5dce1 0,#adb8bf 38%,#748089 72%,#59646b 100%)",
+    photos:["./photos/dailybalance1.png","./photos/dailybalance2.png","./photos/dailybalance3.png","./photos/dailybalance4.png"],
     lesson:{
       title:"Not everything deserves today.",
       lead:"Feeling behind often comes from treating every unfinished thing as equally urgent. Usually, it is not.",
@@ -92,7 +92,6 @@ export const frontCards=[
     }
   }
 ];
-
 
 /*   personal akin placeholder cards*/
 
