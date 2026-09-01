@@ -1,3 +1,4 @@
+
 /*   card stage*/
 .experience-shell{min-height:100dvh;display:flex;flex-direction:column;justify-content:center;padding:max(90px,calc(env(safe-area-inset-top) + 70px)) 0 max(80px,calc(env(safe-area-inset-bottom) + 64px))}
 .carousel-wrap{position:relative;width:100%;min-height:min(61vh,590px);display:flex;align-items:center;touch-action:pan-y}
