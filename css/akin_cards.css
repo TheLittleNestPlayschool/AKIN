@@ -113,6 +113,14 @@
     transform 9s ease;
 }
 
+.card-surface.has-photo{
+  background-image:
+    var(--card-image);
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
 .experience[data-pos="0"]
 .card-surface{
   transform:
@@ -126,9 +134,9 @@
   background:
     linear-gradient(
       to bottom,
-      rgba(255,255,255,.08) 18%,
-      rgba(41,35,32,.03) 45%,
-      rgba(36,31,29,.76) 100%
+      rgba(18,16,15,.06) 12%,
+      rgba(25,22,20,.10) 42%,
+      rgba(31,27,25,.84) 100%
     );
 }
 
