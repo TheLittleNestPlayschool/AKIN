@@ -1,3 +1,4 @@
+
 /*   standard akin navigation*/
 .akin-nav-handle{position:absolute;top:50%;z-index:46;display:flex;align-items:center;justify-content:center;width:58px;height:76%;min-height:220px;max-height:330px;padding:16px 7px;appearance:none;-webkit-appearance:none;border:0;border-radius:0;background:#fff;color:rgba(73,76,82,.98);font:inherit;cursor:pointer;pointer-events:auto;touch-action:manipulation;overflow:hidden;-webkit-tap-highlight-color:transparent;filter:drop-shadow(0 12px 22px rgba(49,57,65,.18)) drop-shadow(0 0 7px rgba(255,255,255,.50));transition:opacity .4s ease,filter .4s ease,transform .2s ease;animation:akinNavPulse 3.4s ease-in-out infinite}
 .akin-nav-handle.is-back{left:0;transform:translateY(-50%);clip-path:polygon(42% 0,100% 0,100% 100%,42% 100%,0 50%)}
