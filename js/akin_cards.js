@@ -16,6 +16,40 @@ export function createCardCarousel({
   let hasInteracted=false;
 
 
+  /*   choose card surfaces once per carousel load*/
+
+  const cardSurfaces=
+    cards.map(
+      item=>{
+
+        if(
+          Array.isArray(item.photos)
+          &&
+          item.photos.length
+        ){
+
+          const photo=
+            item.photos[
+              Math.floor(
+                Math.random()*
+                item.photos.length
+              )
+            ];
+
+          return{
+            type:"photo",
+            value:photo
+          };
+        }
+
+        return{
+          type:"background",
+          value:item.background||""
+        };
+      }
+    );
+
+
   /*   build cards*/
 
   function build(){
@@ -43,12 +77,21 @@ export function createCardCarousel({
           item.id;
 
 
+        const surface=
+          cardSurfaces[index];
+
+        const surfaceStyle=
+          surface.type==="photo"
+            ?`--card-image:url('${surface.value}')`
+            :`--card-bg:${surface.value}`;
+
+
         article.innerHTML=`
           <div class="card">
 
             <div
-              class="card-surface"
-              style="--card-bg:${item.background}">
+              class="card-surface ${surface.type==="photo"?"has-photo":""}"
+              style="${surfaceStyle}">
             </div>
 
             <div class="card-type">
