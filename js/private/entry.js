@@ -1,3 +1,4 @@
+
 /*   hidden private entry*/
 import{getPrivateConfig,verifyPin,verifySecret,verifyBiometric}from"./auth.js";
 
