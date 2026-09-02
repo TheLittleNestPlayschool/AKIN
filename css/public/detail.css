@@ -1,3 +1,4 @@
+
 /*   public detail movement*/
 .front-world.is-detail-open .carousel{transform:translateX(56vw) scale(.76)}
 .front-world.is-detail-open .experience:not([data-pos="0"]){opacity:0!important;pointer-events:none!important;filter:blur(9px)!important}
