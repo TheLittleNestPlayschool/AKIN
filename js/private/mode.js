@@ -1,3 +1,4 @@
+
 import{createCardCarousel}from"../shared/cards.js";
 import{privateCards}from"./data.js";
 /*   private mode*/
