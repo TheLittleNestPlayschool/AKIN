@@ -1,3 +1,4 @@
+
 import{createCardCarousel}from"../shared/cards.js";
 import{publicCards}from"./data.js";
 import{setupPublicDetail}from"./detail.js";
