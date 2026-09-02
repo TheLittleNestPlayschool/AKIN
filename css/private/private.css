@@ -1,0 +1,9 @@
+/*   private exit*/
+.private-exit-orb{width:44px;height:44px;border:1px solid rgba(255,255,255,.78);border-radius:50%;display:grid;place-items:center;padding:0;background:rgba(255,255,255,.46);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 8px 26px rgba(66,56,50,.08);transition:transform .28s ease,background .28s ease}
+.private-exit-orb:active{transform:scale(.93)}
+.private-exit-ring{width:18px;height:18px;display:grid;place-items:center;border:1px solid rgba(71,63,58,.15);border-radius:50%}
+.private-exit-mark{display:block;font-size:16px;line-height:1;color:rgba(71,63,58,.66);transform:translateY(-1px)}
+/*   private mode*/
+.personal-world{z-index:30;transform:translate3d(-12%,18px,-40px) scale(.965);filter:blur(8px)}
+.personal-world.is-visible{opacity:1;pointer-events:auto;transform:translate3d(0,0,0) scale(1);filter:blur(0)}
+.personal-topbar{padding-left:0}.personal-shell{position:relative}
