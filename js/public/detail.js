@@ -1,3 +1,4 @@
+
 /*   public lesson detail*/
 export function setupPublicDetail({frontWorld,layer,backButton,surface,category,title,lead,body,action,onOpen=null,onClose=null}){
   let open=false;
