@@ -1,6 +1,7 @@
 /*   reusable spatial card carousel*/
 export function createCardCarousel({element,cards,hint=null,onActivate=null}){
-  let activeIndex=0,enabled=true,hasInteracted=false,backButton=null,moreButton=null;
+  let activeIndex=0,enabled=true,hasInteracted=false,backButton=null,moreButton=null,moving=false,moveTimer=null;
+  const moveDuration=1450;
   const cardSurfaces=cards.map(item=>{
     if(Array.isArray(item.photos)&&item.photos.length){
       const photo=item.photos[Math.floor(Math.random()*item.photos.length)];
@@ -19,7 +20,7 @@ export function createCardCarousel({element,cards,hint=null,onActivate=null}){
       const surfaceStyle=surface.type==="photo"?`--card-image:url('${surface.value}')`:`--card-bg:${surface.value}`;
       article.innerHTML=`<div class="card"><div class="card-surface ${surface.type==="photo"?"has-photo":""}" style="${surfaceStyle}"></div><div class="card-type">${item.type}</div><div class="card-content"><div class="card-kicker">${item.kicker}</div><h2 class="card-title">${item.title}</h2><p class="card-copy">${item.copy}</p><div class="card-pills">${item.pills.map(pill=>`<span class="card-pill">${pill}</span>`).join("")}</div></div></div>`;
       article.addEventListener("click",()=>{
-        if(!enabled||Number(article.dataset.index)!==activeIndex)return;
+        if(!enabled||moving||Number(article.dataset.index)!==activeIndex)return;
         if(typeof onActivate==="function")onActivate(item,activeIndex);
       });
       element.appendChild(article);
@@ -43,9 +44,16 @@ export function createCardCarousel({element,cards,hint=null,onActivate=null}){
     });
     return button;
   }
+  function hideNavigation(){
+    backButton?.classList.remove("is-visible");
+    moreButton?.classList.remove("is-visible");
+    if(backButton)backButton.disabled=true;
+    if(moreButton)moreButton.disabled=true;
+  }
   function syncNavigation(){
-    const canBack=enabled&&activeIndex>0;
-    const canMore=enabled&&activeIndex<cards.length-1;
+    if(moving||!enabled){hideNavigation();return;}
+    const canBack=activeIndex>0;
+    const canMore=activeIndex<cards.length-1;
     backButton?.classList.toggle("is-visible",canBack);
     moreButton?.classList.toggle("is-visible",canMore);
     if(backButton)backButton.disabled=!canBack;
@@ -64,13 +72,9 @@ export function createCardCarousel({element,cards,hint=null,onActivate=null}){
         card.dataset.pos=offset;
         return;
       }
-      const x=offset*73;
-      const scale=offset===0?1:.86;
-      const rotate=offset*-2.6;
-      const z=offset===0?0:-90;
-      const y=Math.abs(offset)*10;
+      const x=offset*73,scale=offset===0?1:.86,rotate=offset*-2.6,z=offset===0?0:-90,y=Math.abs(offset)*10;
       card.style.opacity=offset===0?"1":".46";
-      card.style.pointerEvents=offset===0&&enabled?"auto":"none";
+      card.style.pointerEvents=offset===0&&enabled&&!moving?"auto":"none";
       card.style.filter=offset===0?"blur(0)":"blur(1.4px)";
       card.style.transform=`translate(-50%,-50%) translate3d(${x}%,${y}px,${z}px) rotate(${rotate}deg) scale(${scale})`;
       card.style.zIndex=offset===0?"10":"7";
@@ -79,16 +83,30 @@ export function createCardCarousel({element,cards,hint=null,onActivate=null}){
     syncNavigation();
   }
   function move(direction){
-    if(!enabled)return;
+    if(!enabled||moving)return;
     const next=Math.min(cards.length-1,Math.max(0,activeIndex+direction));
     if(next===activeIndex)return;
+    moving=true;
+    hideNavigation();
     activeIndex=next;
     render();
     hideHint();
+    window.clearTimeout(moveTimer);
+    moveTimer=window.setTimeout(()=>{moving=false;render();},moveDuration);
   }
   function hideHint(){if(hasInteracted||!hint)return;hasInteracted=true;hint.style.opacity="0";}
-  function reset(index=0){activeIndex=Math.min(cards.length-1,Math.max(0,index));render();}
-  function setEnabled(value){enabled=Boolean(value);render();}
+  function reset(index=0){
+    window.clearTimeout(moveTimer);
+    moving=false;
+    activeIndex=Math.min(cards.length-1,Math.max(0,index));
+    render();
+  }
+  function setEnabled(value){
+    window.clearTimeout(moveTimer);
+    moving=false;
+    enabled=Boolean(value);
+    render();
+  }
   function getActiveIndex(){return activeIndex;}
   function getActiveCard(){return cards[activeIndex];}
   build();
