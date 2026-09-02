@@ -1,3 +1,4 @@
+
 /*   private authentication*/
 const configKey="akin_private_access_v1";
 const textEncoder=new TextEncoder();
