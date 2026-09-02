@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="css/public/public.css">
   <link rel="stylesheet" href="css/public/detail.css">
   <link rel="stylesheet" href="css/private/private.css">
+  <link rel="stylesheet" href="css/private/access.css">
 </head>
 <body>
   <main class="akin-app is-login" id="app">
@@ -28,15 +29,11 @@
     </section>
     <!--   public mode-->
     <section class="front-world app-world" id="frontWorld" aria-hidden="true">
-      <header class="topbar"><div class="identity"><span class="eyebrow">AKIN</span><span class="hello" id="timeGreeting">Good evening.</span><span class="subhello" id="timeMessage">What would help right now?</span></div><button class="akin-entry-orb" id="akinEntryButton" type="button" aria-label="Open private mode"><span class="akin-entry-ring"><span class="akin-entry-dot"></span></span></button></header>
+      <header class="topbar"><div class="identity"><span class="eyebrow">AKIN</span><span class="hello" id="timeGreeting">Good evening.</span><span class="subhello" id="timeMessage">What would help right now?</span></div><button class="akin-entry-orb" id="akinEntryButton" type="button" aria-label="Show a thought"><span class="akin-entry-ring"><span class="akin-entry-dot"></span></span></button></header>
       <section class="experience-shell"><div class="carousel-wrap"><div class="carousel" id="frontCarousel"></div></div></section>
       <div class="wander-hint" id="frontWanderHint" aria-hidden="true"><span></span><em>swipe to wander</em><span></span></div>
-      <!--   public lesson layer-->
       <section class="front-detail-layer" id="frontDetailLayer" aria-hidden="true">
-        <div class="front-detail-wrap">
-          <button class="detail-nav-handle" id="frontDetailBack" type="button" aria-label="Go back"><span class="card-nav-handle-label">Back</span></button>
-          <article class="front-detail-card" id="frontDetailCard"><div class="front-detail-surface" id="frontDetailSurface"></div><div class="front-detail-content"><span class="detail-category" id="frontDetailCategory"></span><h2 class="detail-title" id="frontDetailTitle"></h2><p class="detail-lead" id="frontDetailLead"></p><div class="detail-body" id="frontDetailBody"></div><div class="detail-action"><span class="detail-action-label">Try this now</span><p id="frontDetailAction"></p></div></div></article>
-        </div>
+        <div class="front-detail-wrap"><button class="detail-nav-handle" id="frontDetailBack" type="button" aria-label="Go back"><span class="card-nav-handle-label">Back</span></button><article class="front-detail-card" id="frontDetailCard"><div class="front-detail-surface" id="frontDetailSurface"></div><div class="front-detail-content"><span class="detail-category" id="frontDetailCategory"></span><h2 class="detail-title" id="frontDetailTitle"></h2><p class="detail-lead" id="frontDetailLead"></p><div class="detail-body" id="frontDetailBody"></div><div class="detail-action"><span class="detail-action-label">Try this now</span><p id="frontDetailAction"></p></div></div></article></div>
       </section>
     </section>
     <!--   private mode-->
