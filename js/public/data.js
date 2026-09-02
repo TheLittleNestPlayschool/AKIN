@@ -1,3 +1,4 @@
+
 /*   public cards*/
 const photo=name=>new URL(`../../photos/${name}`,import.meta.url).href;
 export const publicCards=[
