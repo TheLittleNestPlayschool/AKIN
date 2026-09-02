@@ -1,4 +1,3 @@
-
 /*   reusable spatial card carousel*/
 export function createCardCarousel({element,cards,hint=null,onActivate=null}){
   let activeIndex=0,enabled=true,hasInteracted=false,backButton=null,moreButton=null,moving=false,moveTimer=null;
@@ -38,14 +37,11 @@ export function createCardCarousel({element,cards,hint=null,onActivate=null}){
     button.className=`carousel-nav-handle carousel-nav-${direction}`;
     button.setAttribute("aria-label",isMore?"Show more":"Go back");
     button.innerHTML=`<span class="card-nav-handle-label">${isMore?"More":"Back"}</span>`;
-    button.addEventListener("pointerdown",event=>{
-      event.preventDefault();
-      event.stopPropagation();
-      move(isMore?1:-1);
-    });
+    button.addEventListener("pointerdown",event=>event.stopPropagation());
     button.addEventListener("click",event=>{
       event.preventDefault();
       event.stopPropagation();
+      move(isMore?1:-1);
     });
     return button;
   }
@@ -100,18 +96,8 @@ export function createCardCarousel({element,cards,hint=null,onActivate=null}){
     moveTimer=window.setTimeout(()=>{moving=false;render();},moveDuration);
   }
   function hideHint(){if(hasInteracted||!hint)return;hasInteracted=true;hint.style.opacity="0";}
-  function reset(index=0){
-    window.clearTimeout(moveTimer);
-    moving=false;
-    activeIndex=Math.min(cards.length-1,Math.max(0,index));
-    render();
-  }
-  function setEnabled(value){
-    window.clearTimeout(moveTimer);
-    moving=false;
-    enabled=Boolean(value);
-    render();
-  }
+  function reset(index=0){window.clearTimeout(moveTimer);moving=false;activeIndex=Math.min(cards.length-1,Math.max(0,index));render();}
+  function setEnabled(value){window.clearTimeout(moveTimer);moving=false;enabled=Boolean(value);render();}
   function getActiveIndex(){return activeIndex;}
   function getActiveCard(){return cards[activeIndex];}
   build();
