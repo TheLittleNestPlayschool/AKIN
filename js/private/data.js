@@ -1,3 +1,4 @@
+
 /*   private placeholder cards*/
 export const privateCards=[
   {id:"my-space",type:"My AKIN",kicker:"Private by design",title:"This is your space.",copy:"The personal side of AKIN will hold only what you choose to bring here.",pills:["personal","yours"],background:"radial-gradient(circle at 70% 12%,#d8cedd 0,#b6a6bb 38%,#7a6c81 72%,#5d5263 100%)"},
