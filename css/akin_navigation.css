@@ -3,8 +3,8 @@
 .carousel-nav-handle{z-index:12;width:52px;height:42%;min-height:150px;max-height:220px;padding:0;background:transparent;opacity:0;pointer-events:none;transform:translateY(-50%);transition:opacity .18s ease,transform .14s ease}
 .carousel-nav-handle::before{content:"";position:absolute;top:0;bottom:0;width:34px;background:#fff;filter:drop-shadow(0 10px 18px rgba(49,57,65,.16));transition:filter .18s ease,background .18s ease}
 .carousel-nav-handle.is-visible{opacity:1;pointer-events:auto}
-.carousel-nav-back{left:calc(50% - min(39vw,195px) - 48px)}
-.carousel-nav-more{right:calc(50% - min(39vw,195px) - 48px)}
+.carousel-nav-back{left:calc(50% - min(39vw,195px) - 52px)}
+.carousel-nav-more{right:calc(50% - min(39vw,195px) - 52px)}
 .carousel-nav-back::before{right:0;clip-path:polygon(34% 0,100% 0,100% 100%,34% 100%,0 50%)}
 .carousel-nav-more::before{left:0;clip-path:polygon(0 0,66% 0,100% 50%,66% 100%,0 100%)}
 .carousel-nav-handle:hover::before,.carousel-nav-handle:focus-visible::before{background:#fffdf8;filter:drop-shadow(0 12px 22px rgba(49,57,65,.22))}
@@ -18,6 +18,6 @@
 .detail-nav-handle:focus-visible{box-shadow:inset 0 0 0 2px rgba(204,164,77,.58)}
 .detail-nav-handle:active{transform:translateY(-50%) scale(.81)}
 @keyframes akinNavPulse{0%,68%,100%{filter:drop-shadow(0 12px 22px rgba(49,57,65,.18))}80%{filter:drop-shadow(0 15px 27px rgba(49,57,65,.23))}}
-@media(min-width:700px){.carousel-nav-back{left:calc(50% - min(27vw,215px) - 48px)}.carousel-nav-more{right:calc(50% - min(27vw,215px) - 48px)}}
-@media(max-width:420px){.carousel-nav-handle{width:48px;height:40%;min-height:142px;max-height:205px}.carousel-nav-handle::before{width:32px}.carousel-nav-back{left:calc(50% - min(39vw,195px) - 44px)}.carousel-nav-more{right:calc(50% - min(39vw,195px) - 44px)}.carousel-nav-back .card-nav-handle-label{margin-left:16px}.carousel-nav-more .card-nav-handle-label{margin-right:16px}.detail-nav-handle{left:-33px;width:54px;height:75%;min-height:205px;max-height:300px;padding:14px 6px}.card-nav-handle-label{font-size:12px;letter-spacing:.3em}}
+@media(min-width:700px){.carousel-nav-back{left:calc(50% - min(27vw,215px) - 52px)}.carousel-nav-more{right:calc(50% - min(27vw,215px) - 52px)}}
+@media(max-width:420px){.carousel-nav-handle{width:48px;height:40%;min-height:142px;max-height:205px}.carousel-nav-handle::before{width:32px}.carousel-nav-back{left:calc(50% - min(39vw,195px) - 48px)}.carousel-nav-more{right:calc(50% - min(39vw,195px) - 48px)}.carousel-nav-back .card-nav-handle-label{margin-left:16px}.carousel-nav-more .card-nav-handle-label{margin-right:16px}.detail-nav-handle{left:-33px;width:54px;height:75%;min-height:205px;max-height:300px;padding:14px 6px}.card-nav-handle-label{font-size:12px;letter-spacing:.3em}}
 @media(prefers-reduced-motion:reduce){.detail-nav-handle{animation:none!important}}
