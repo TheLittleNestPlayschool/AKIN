@@ -1,23 +1,20 @@
 /*   standard akin card navigation*/
 .carousel-nav-handle,.detail-nav-handle{position:absolute;top:50%;display:flex;align-items:center;justify-content:center;appearance:none;-webkit-appearance:none;border:0;color:rgba(73,76,82,.98);font:inherit;cursor:pointer;touch-action:manipulation;overflow:visible;-webkit-tap-highlight-color:transparent;outline:none}
-.carousel-nav-handle{z-index:12;width:52px;height:42%;min-height:150px;max-height:220px;padding:0;background:transparent;opacity:0;pointer-events:none;transform:translateY(-50%);transition:opacity .18s ease,transform .14s ease}
-.carousel-nav-handle::before{content:"";position:absolute;top:0;bottom:0;width:34px;background:#fff;filter:drop-shadow(0 10px 18px rgba(49,57,65,.16));transition:filter .18s ease,background .18s ease}
+.carousel-nav-handle,.detail-nav-handle{width:52px;height:42%;min-height:150px;max-height:220px;padding:0;background:transparent;transform:translateY(-50%)}
+.carousel-nav-handle::before,.detail-nav-handle::before{content:"";position:absolute;top:0;bottom:0;width:34px;background:#fff;filter:drop-shadow(0 10px 18px rgba(49,57,65,.16));transition:filter .18s ease,background .18s ease}
+.carousel-nav-handle{z-index:12;opacity:0;pointer-events:none;transition:opacity .18s ease,transform .14s ease}
 .carousel-nav-handle.is-visible{opacity:1;pointer-events:auto}
 .carousel-nav-back{left:calc(50% - min(39vw,195px) - 52px)}
 .carousel-nav-more{right:calc(50% - min(39vw,195px) - 52px)}
-.carousel-nav-back::before{right:0;clip-path:polygon(34% 0,100% 0,100% 100%,34% 100%,0 50%)}
+.carousel-nav-back::before,.detail-nav-handle::before{right:0;clip-path:polygon(34% 0,100% 0,100% 100%,34% 100%,0 50%)}
 .carousel-nav-more::before{left:0;clip-path:polygon(0 0,66% 0,100% 50%,66% 100%,0 100%)}
-.carousel-nav-handle:hover::before,.carousel-nav-handle:focus-visible::before{background:#fffdf8;filter:drop-shadow(0 12px 22px rgba(49,57,65,.22))}
-.carousel-nav-handle:focus-visible::before{box-shadow:inset 0 0 0 2px rgba(204,164,77,.58)}
+.carousel-nav-handle:hover::before,.carousel-nav-handle:focus-visible::before,.detail-nav-handle:hover::before,.detail-nav-handle:focus-visible::before{background:#fffdf8;filter:drop-shadow(0 12px 22px rgba(49,57,65,.22))}
+.carousel-nav-handle:focus-visible::before,.detail-nav-handle:focus-visible::before{box-shadow:inset 0 0 0 2px rgba(204,164,77,.58)}
 .card-nav-handle-label{position:relative;z-index:2;display:block;margin:0;padding:0;font-size:12px;line-height:1;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(72,76,83,.98);writing-mode:vertical-rl;text-orientation:upright;white-space:nowrap;text-align:center;user-select:none;text-shadow:0 1px 0 rgba(255,255,255,.8);pointer-events:none}
-.carousel-nav-back .card-nav-handle-label{margin-left:18px}.carousel-nav-more .card-nav-handle-label{margin-right:18px}
-.carousel-nav-back:active,.carousel-nav-more:active{transform:translateY(-50%) scale(.96)}
-/*   detail back*/
-.detail-nav-handle{left:-36px;z-index:1;width:58px;height:76%;min-height:220px;max-height:330px;padding:16px 7px;background:#fff;pointer-events:auto;transform:translateY(-50%) scale(.86);clip-path:polygon(42% 0,100% 0,100% 100%,42% 100%,0 50%);filter:drop-shadow(0 10px 18px rgba(49,57,65,.16));transition:filter .25s ease,background .25s ease,transform .18s ease;animation:akinNavPulse 3.4s ease-in-out infinite;overflow:hidden}
-.detail-nav-handle:hover,.detail-nav-handle:focus-visible{background:#fffdf8;filter:drop-shadow(0 12px 22px rgba(49,57,65,.22))}
-.detail-nav-handle:focus-visible{box-shadow:inset 0 0 0 2px rgba(204,164,77,.58)}
-.detail-nav-handle:active{transform:translateY(-50%) scale(.81)}
-@keyframes akinNavPulse{0%,68%,100%{filter:drop-shadow(0 12px 22px rgba(49,57,65,.18))}80%{filter:drop-shadow(0 15px 27px rgba(49,57,65,.23))}}
+.carousel-nav-back .card-nav-handle-label,.detail-nav-handle .card-nav-handle-label{margin-left:18px}
+.carousel-nav-more .card-nav-handle-label{margin-right:18px}
+.carousel-nav-back:active,.carousel-nav-more:active,.detail-nav-handle:active{transform:translateY(-50%) scale(.96)}
+/*   detail back uses the same control as carousel back*/
+.detail-nav-handle{left:-52px;z-index:3;pointer-events:auto;transition:transform .14s ease}
 @media(min-width:700px){.carousel-nav-back{left:calc(50% - min(27vw,215px) - 52px)}.carousel-nav-more{right:calc(50% - min(27vw,215px) - 52px)}}
-@media(max-width:420px){.carousel-nav-handle{width:48px;height:40%;min-height:142px;max-height:205px}.carousel-nav-handle::before{width:32px}.carousel-nav-back{left:calc(50% - min(39vw,195px) - 48px)}.carousel-nav-more{right:calc(50% - min(39vw,195px) - 48px)}.carousel-nav-back .card-nav-handle-label{margin-left:16px}.carousel-nav-more .card-nav-handle-label{margin-right:16px}.detail-nav-handle{left:-33px;width:54px;height:75%;min-height:205px;max-height:300px;padding:14px 6px}.card-nav-handle-label{font-size:12px;letter-spacing:.3em}}
-@media(prefers-reduced-motion:reduce){.detail-nav-handle{animation:none!important}}
+@media(max-width:420px){.carousel-nav-handle,.detail-nav-handle{width:48px;height:40%;min-height:142px;max-height:205px}.carousel-nav-handle::before,.detail-nav-handle::before{width:32px}.carousel-nav-back{left:calc(50% - min(39vw,195px) - 48px)}.carousel-nav-more{right:calc(50% - min(39vw,195px) - 48px)}.detail-nav-handle{left:-48px}.carousel-nav-back .card-nav-handle-label,.detail-nav-handle .card-nav-handle-label{margin-left:16px}.carousel-nav-more .card-nav-handle-label{margin-right:16px}.card-nav-handle-label{font-size:12px;letter-spacing:.3em}}
