@@ -1,4 +1,3 @@
-
 /*   reusable spatial card carousel*/
 export function createCardCarousel({element,cards,hint=null,onActivate=null}){
   let activeIndex=0,enabled=true,hasInteracted=false,backButton=null,moreButton=null,moving=false,moveTimer=null;
@@ -38,10 +37,14 @@ export function createCardCarousel({element,cards,hint=null,onActivate=null}){
     button.className=`carousel-nav-handle carousel-nav-${direction}`;
     button.setAttribute("aria-label",isMore?"Show more":"Go back");
     button.innerHTML=`<span class="card-nav-handle-label">${isMore?"More":"Back"}</span>`;
-    button.addEventListener("click",event=>{
+    button.addEventListener("pointerdown",event=>{
       event.preventDefault();
       event.stopPropagation();
       move(isMore?1:-1);
+    });
+    button.addEventListener("click",event=>{
+      event.preventDefault();
+      event.stopPropagation();
     });
     return button;
   }
