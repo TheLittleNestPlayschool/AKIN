@@ -1,3 +1,4 @@
+
 /*   private access onboarding*/
 import{getPrivateConfig,savePrivateConfig,setPin,setSecret,enrollBiometric,biometricSupported}from"./auth.js";
 
