@@ -1,3 +1,4 @@
+
 /*   private access*/
 .private-access-layer{position:absolute;inset:0;z-index:55;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(239,235,231,.78);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);opacity:0;pointer-events:none;transition:opacity .32s ease}
 .private-access-layer.is-visible{opacity:1;pointer-events:auto}
