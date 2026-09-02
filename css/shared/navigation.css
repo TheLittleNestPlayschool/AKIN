@@ -1,3 +1,4 @@
+
 /*   standard card navigation*/
 .carousel-nav-handle,.detail-nav-handle{position:absolute;top:50%;display:flex;align-items:center;justify-content:center;appearance:none;-webkit-appearance:none;border:0;color:rgba(73,76,82,.98);font:inherit;cursor:pointer;touch-action:manipulation;overflow:visible;-webkit-tap-highlight-color:transparent;outline:none}
 .carousel-nav-handle,.detail-nav-handle{width:52px;height:42%;min-height:150px;max-height:220px;padding:0;background:transparent;transform:translateY(-50%)}
