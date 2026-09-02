@@ -1,3 +1,4 @@
+
 /*   public orb quotes*/
 const quotes=["You do not have to solve everything today.","A small pause can change the next moment.","You can begin again from here.","Not everything needs your attention at once.","A little space can make things clearer."];
 export function setupPublicOrb(){
