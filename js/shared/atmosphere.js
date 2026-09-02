@@ -1,3 +1,4 @@
+
 /*   mix colors*/
 function mixColor(a,b,t){const ah=a.replace("#",""),bh=b.replace("#","");const ar=parseInt(ah.slice(0,2),16),ag=parseInt(ah.slice(2,4),16),ab=parseInt(ah.slice(4,6),16),br=parseInt(bh.slice(0,2),16),bg=parseInt(bh.slice(2,4),16),bb=parseInt(bh.slice(4,6),16);const r=Math.round(ar+(br-ar)*t),g=Math.round(ag+(bg-ag)*t),bl=Math.round(ab+(bb-ab)*t);return`rgb(${r} ${g} ${bl})`}
 /*   time palette*/
