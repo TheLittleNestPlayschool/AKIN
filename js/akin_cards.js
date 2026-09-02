@@ -1,8 +1,8 @@
-
 /*   reusable spatial card carousel*/
 export function createCardCarousel({element,cards,hint=null,onActivate=null}){
   let activeIndex=0,enabled=true,hasInteracted=false,backButton=null,moreButton=null,moving=false,moveTimer=null;
   const moveDuration=1450;
+  const navHost=element.parentElement;
   const cardSurfaces=cards.map(item=>{
     if(Array.isArray(item.photos)&&item.photos.length){
       const photo=item.photos[Math.floor(Math.random()*item.photos.length)];
@@ -26,9 +26,10 @@ export function createCardCarousel({element,cards,hint=null,onActivate=null}){
       });
       element.appendChild(article);
     });
+    navHost.querySelectorAll(":scope > .carousel-nav-handle").forEach(button=>button.remove());
     backButton=createNavigationButton("back");
     moreButton=createNavigationButton("more");
-    element.append(backButton,moreButton);
+    navHost.append(backButton,moreButton);
     render();
   }
   function createNavigationButton(direction){
@@ -38,7 +39,6 @@ export function createCardCarousel({element,cards,hint=null,onActivate=null}){
     button.className=`carousel-nav-handle carousel-nav-${direction}`;
     button.setAttribute("aria-label",isMore?"Show more":"Go back");
     button.innerHTML=`<span class="card-nav-handle-label">${isMore?"More":"Back"}</span>`;
-    button.addEventListener("pointerdown",event=>event.stopPropagation());
     button.addEventListener("click",event=>{
       event.preventDefault();
       event.stopPropagation();
