@@ -41,8 +41,13 @@ export function setupAcquisitionMode(){
     element.textContent=normalizeText(value);
   }
 
+  function resolveAsset(asset){
+    if(!asset)return"";
+    return new URL(asset,document.baseURI).href;
+  }
+
   function getStepAsset(step){
-    return getAcquisitionAsset(theme,step?.step_type||"intro");
+    return resolveAsset(getAcquisitionAsset(theme,step?.step_type||"intro"));
   }
 
   function setBackdrop(asset,immediate=false){
@@ -231,7 +236,7 @@ export function setupAcquisitionMode(){
     }
 
     const loginWorld=document.getElementById("loginWorld");
-    const loginAsset=theme?.assets?.login||getStepAsset(data.steps[currentIndex]);
+    const loginAsset=resolveAsset(theme?.assets?.login||getAcquisitionAsset(theme,data.steps[currentIndex]?.step_type));
     if(loginAsset){
       loginWorld.style.setProperty("--login-acquisition-image",`url("${loginAsset}")`);
       loginWorld.classList.add("from-acquisition");
