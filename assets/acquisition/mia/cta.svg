@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="853" viewBox="0 0 640 853">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9a6974"/><stop offset=".48" stop-color="#aa7b88"/><stop offset="1" stop-color="#455366"/></linearGradient>
+  <radialGradient id="warm" cx="25%" cy="12%" r="70%"><stop stop-color="#ffe4b8" stop-opacity=".88"/><stop offset="1" stop-color="#ffe4b8" stop-opacity="0"/></radialGradient>
+  <filter id="soft"><feGaussianBlur stdDeviation="20"/></filter>
+</defs>
+<rect width="640" height="853" fill="url(#bg)"/>
+<rect width="640" height="853" fill="url(#warm)"/>
+<ellipse cx="510" cy="205" rx="170" ry="135" fill="#cdb1ed" opacity=".2" filter="url(#soft)"/>
+<path d="M0 706c130-86 230-80 325-6 90-65 189-60 315 19v134H0z" fill="#2d3442" opacity=".35"/>
+<g transform="translate(92 410)">
+  <rect x="0" y="34" width="456" height="255" rx="34" fill="#f5edf0" opacity=".88"/>
+  <circle cx="82" cy="110" r="40" fill="#c88f9a" opacity=".42"/>
+  <rect x="145" y="89" width="198" height="14" rx="7" fill="#765d70" opacity=".32"/>
+  <rect x="145" y="121" width="158" height="11" rx="6" fill="#765d70" opacity=".2"/>
+  <rect x="45" y="185" width="355" height="12" rx="6" fill="#765d70" opacity=".16"/>
+  <rect x="45" y="216" width="292" height="12" rx="6" fill="#765d70" opacity=".13"/>
+</g>
+<circle cx="116" cy="215" r="70" fill="#fff" opacity=".07"/>
+<circle cx="548" cy="355" r="88" fill="#fff" opacity=".05"/>
+</svg>
