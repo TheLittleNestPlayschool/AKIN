@@ -1,32 +1,63 @@
-
 /*   acquisition mode*/
 import{getAcquisitionExperience}from"../shared/api.js";
 
 export function setupAcquisitionMode(){
   const world=document.getElementById("acquisitionWorld");
-  const card=document.getElementById("acquisitionCard");
+  const stage=document.getElementById("acquisitionStage");
   const progress=document.getElementById("acquisitionProgress");
   let data=null;
   let currentIndex=0;
+  let cards=[];
 
-  function getEntrySlug(){return new URLSearchParams(window.location.search).get("entry")?.trim()||""}
+  function getEntrySlug(){
+    return new URLSearchParams(window.location.search).get("entry")?.trim()||"";
+  }
+
   function hasEntry(){return Boolean(getEntrySlug())}
-  function show(){world.hidden=false;world.setAttribute("aria-hidden","false")}
-  function hide(){world.hidden=true;world.setAttribute("aria-hidden","true")}
 
-  function renderStep(){
-    const step=data?.steps?.[currentIndex];
-    if(!step)return;
-    progress.textContent=`${String(currentIndex+1).padStart(2,"0")} / ${String(data.steps.length).padStart(2,"0")}`;
-    card.classList.remove("is-entering");
-    card.innerHTML="";
+  function show(){
+    world.hidden=false;
+    world.setAttribute("aria-hidden","false");
+  }
+
+  function hide(){
+    world.hidden=true;
+    world.setAttribute("aria-hidden","true");
+  }
+
+  function buildStage(){
+    stage.innerHTML="";
+    cards=(data?.steps||[]).map((step,index)=>{
+      const card=createCard(step,index);
+      stage.appendChild(card);
+      return card;
+    });
+    updateStage(false);
+  }
+
+  function createCard(step,index){
+    const wrapper=document.createElement("article");
+    wrapper.className=`acquisition-experience acquisition-${step.step_type||"moment"}`;
+    wrapper.dataset.index=String(index);
+    wrapper.dataset.pos="0";
+    wrapper.setAttribute("aria-hidden","true");
+
+    const card=document.createElement("div");
+    card.className="acquisition-card";
+
+    const surface=document.createElement("div");
+    surface.className="acquisition-surface";
+
+    const glow=document.createElement("div");
+    glow.className="acquisition-glow";
+    surface.appendChild(glow);
 
     const content=document.createElement("div");
     content.className="acquisition-content";
 
     const kicker=document.createElement("span");
     kicker.className="acquisition-kicker";
-    kicker.textContent="AKIN";
+    kicker.textContent=getKicker(step);
 
     const heading=document.createElement("h1");
     heading.textContent=step.heading||data.experience?.title||"AKIN";
@@ -37,94 +68,146 @@ export function setupAcquisitionMode(){
 
     content.append(kicker,heading);
     if(step.body)content.appendChild(body);
-    card.appendChild(content);
+
+    const interaction=document.createElement("div");
+    interaction.className="acquisition-interaction";
+    content.appendChild(interaction);
+
+    card.append(surface,content);
+    wrapper.appendChild(card);
+
+    renderInteraction(step,interaction,index);
+    return wrapper;
+  }
+
+  function getKicker(step){
+    switch(step.step_type){
+      case"intro":return"A moment";
+      case"choice":return"What would you do?";
+      case"reflection":return"Look a little closer";
+      case"value":return"Try this";
+      case"cta":return"Your AKIN";
+      default:return"AKIN";
+    }
+  }
+
+  function renderInteraction(step,interaction,index){
+    interaction.innerHTML="";
 
     if(step.options?.length){
-      renderOptions(step,content);
-    }else{
-      content.appendChild(createContinueButton(step.step_type==="cta"?"Create my AKIN":"Continue"));
-    }
+      const options=document.createElement("div");
+      options.className="acquisition-options";
 
-    requestAnimationFrame(()=>card.classList.add("is-entering"));
-  }
+      step.options.forEach(option=>{
+        const button=document.createElement("button");
+        button.type="button";
+        button.className="acquisition-option";
+        button.textContent=option.label;
+        button.addEventListener("click",()=>selectOption(step,option,options,interaction,index));
+        options.appendChild(button);
+      });
 
-  function renderOptions(step,content){
-    const options=document.createElement("div");
-    options.className="acquisition-options";
-
-    step.options.forEach(option=>{
-      const button=document.createElement("button");
-      button.type="button";
-      button.className="acquisition-option";
-      button.textContent=option.label;
-      button.addEventListener("click",()=>selectOption(option,options,content));
-      options.appendChild(button);
-    });
-
-    content.appendChild(options);
-  }
-
-  function selectOption(option,options,content){
-    if(content.querySelector(".acquisition-continue"))return;
-
-    options.querySelectorAll(".acquisition-option").forEach(button=>button.disabled=true);
-
-    if(option.response_text){
-      const response=document.createElement("div");
-      response.className="acquisition-response-wrap";
-      const responseLabel=document.createElement("span");
-      responseLabel.className="acquisition-response-label";
-      responseLabel.textContent="A thought for you";
-      const responseText=document.createElement("p");
-      responseText.className="acquisition-response";
-      responseText.textContent=option.response_text;
-      response.append(responseLabel,responseText);
-      options.classList.add("is-leaving");
-      window.setTimeout(()=>options.replaceWith(response),280);
-      window.setTimeout(()=>response.appendChild(createContinueButton()),380);
+      interaction.appendChild(options);
       return;
     }
 
-    const selected=[...options.children].find(button=>button.textContent===option.label);
-    if(selected)selected.classList.add("is-selected");
-    options.querySelectorAll(".acquisition-option").forEach(button=>{
-      if(button!==selected)button.classList.add("is-muted");
-    });
-    content.appendChild(createContinueButton());
+    interaction.appendChild(createContinueButton(step.step_type==="cta"?"Create my AKIN":"Continue",index));
   }
 
-  function createContinueButton(label="Continue"){
+  function selectOption(step,option,options,interaction,index){
+    if(interaction.classList.contains("is-reflecting"))return;
+    interaction.classList.add("is-reflecting");
+
+    options.querySelectorAll(".acquisition-option").forEach(button=>{
+      button.disabled=true;
+      if(button.textContent===option.label)button.classList.add("is-selected");
+      else button.classList.add("is-muted");
+    });
+
+    window.setTimeout(()=>{
+      if(option.response_text){
+        showResponse(option.response_text,interaction,index);
+        return;
+      }
+
+      const thought=step.step_type==="reflection"
+        ?"That answer matters more than it looks."
+        :"Hold onto that choice for a moment.";
+      showResponse(thought,interaction,index);
+    },520);
+  }
+
+  function showResponse(text,interaction,index){
+    const response=document.createElement("div");
+    response.className="acquisition-response-wrap";
+
+    const label=document.createElement("span");
+    label.className="acquisition-response-label";
+    label.textContent="AKIN noticed";
+
+    const responseText=document.createElement("p");
+    responseText.className="acquisition-response";
+    responseText.textContent=text;
+
+    response.append(label,responseText,createContinueButton("Continue",index));
+    interaction.classList.add("is-changing");
+
+    window.setTimeout(()=>{
+      interaction.innerHTML="";
+      interaction.appendChild(response);
+      interaction.classList.remove("is-changing");
+      requestAnimationFrame(()=>response.classList.add("is-visible"));
+    },420);
+  }
+
+  function createContinueButton(label,index){
     const button=document.createElement("button");
     button.type="button";
     button.className="acquisition-continue";
     button.innerHTML=`<span>${label}</span><span aria-hidden="true">→</span>`;
-    button.addEventListener("click",next);
+    button.addEventListener("click",()=>next(index));
     return button;
   }
 
-  function next(){
-    card.classList.remove("is-entering");
-    card.classList.add("is-leaving");
+  function next(index){
+    if(index!==currentIndex)return;
+
+    if(currentIndex<data.steps.length-1){
+      currentIndex+=1;
+      updateStage(true);
+      return;
+    }
+
+    world.classList.add("is-finishing");
     window.setTimeout(()=>{
-      card.classList.remove("is-leaving");
-      if(currentIndex<data.steps.length-1){
-        currentIndex+=1;
-        renderStep();
-        return;
-      }
       hide();
+      world.classList.remove("is-finishing");
       document.getElementById("loginWorld").hidden=false;
-    },360);
+    },900);
+  }
+
+  function updateStage(animate){
+    progress.textContent=`${String(currentIndex+1).padStart(2,"0")} / ${String(data.steps.length).padStart(2,"0")}`;
+    stage.classList.toggle("is-moving",animate);
+
+    cards.forEach((card,index)=>{
+      const position=index-currentIndex;
+      card.dataset.pos=String(Math.max(-2,Math.min(2,position)));
+      card.setAttribute("aria-hidden",position===0?"false":"true");
+    });
+
+    window.setTimeout(()=>stage.classList.remove("is-moving"),1500);
   }
 
   async function start(){
     const slug=getEntrySlug();
     if(!slug)return false;
+
     data=await getAcquisitionExperience(slug);
     currentIndex=0;
     document.getElementById("loginWorld").hidden=true;
     show();
-    renderStep();
+    buildStage();
     return true;
   }
 
