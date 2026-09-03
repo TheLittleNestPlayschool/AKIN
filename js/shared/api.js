@@ -1,4 +1,3 @@
-
 /*   xano api*/
 const API_BASE="https://x8ki-letl-twmt.n7.xano.io/api:esjA0pTg";
 const tokenKey="akin_auth_token";
@@ -14,7 +13,8 @@ async function request(path,{method="GET",body=null,authenticated=false}={}){
   const response=await fetch(`${API_BASE}${path}`,{
     method,
     headers,
-    body:body?JSON.stringify(body):null
+    body:body?JSON.stringify(body):null,
+    cache:method==="GET"?"no-store":"default"
   });
 
   let data=null;
@@ -70,5 +70,5 @@ export async function bootstrap(){
 }
 
 export async function getAcquisitionExperience(slug){
-  return request(`/w_acquisition_experience?slug=${encodeURIComponent(slug)}`);
+  return request(`/w_acquisition_experience?slug=${encodeURIComponent(slug)}&_=${Date.now()}`);
 }
