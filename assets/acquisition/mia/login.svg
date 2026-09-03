@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="853" viewBox="0 0 640 853">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#efe2dc"/><stop offset=".48" stop-color="#dfc5cd"/><stop offset="1" stop-color="#c9d6d0"/></linearGradient>
+  <radialGradient id="glow" cx="20%" cy="10%" r="76%"><stop stop-color="#fff8e9" stop-opacity=".96"/><stop offset="1" stop-color="#fff8e9" stop-opacity="0"/></radialGradient>
+  <filter id="soft"><feGaussianBlur stdDeviation="22"/></filter>
+</defs>
+<rect width="640" height="853" fill="url(#bg)"/>
+<rect width="640" height="853" fill="url(#glow)"/>
+<ellipse cx="520" cy="190" rx="170" ry="125" fill="#bea9dd" opacity=".16" filter="url(#soft)"/>
+<ellipse cx="125" cy="650" rx="180" ry="125" fill="#e9b3a9" opacity=".18" filter="url(#soft)"/>
+<g transform="translate(118 375)">
+  <rect width="404" height="275" rx="36" fill="#ffffff" opacity=".48"/>
+  <circle cx="202" cy="78" r="42" fill="#bb8793" opacity=".26"/>
+  <rect x="88" y="142" width="228" height="14" rx="7" fill="#75666c" opacity=".24"/>
+  <rect x="122" y="174" width="160" height="11" rx="6" fill="#75666c" opacity=".16"/>
+  <rect x="112" y="218" width="180" height="36" rx="18" fill="#ffffff" opacity=".7"/>
+</g>
+<circle cx="115" cy="205" r="72" fill="#fff" opacity=".3"/>
+</svg>
