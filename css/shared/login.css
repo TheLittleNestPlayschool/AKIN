@@ -1,4 +1,3 @@
-
 /*   login*/
 .login-world{position:absolute;inset:0;z-index:60;display:flex;flex-direction:column;justify-content:center;padding:max(34px,env(safe-area-inset-top)) 24px max(34px,env(safe-area-inset-bottom));transition:opacity .85s ease,transform var(--slow) var(--ease),filter 1.05s ease}
 .login-world[hidden]{display:none!important}
