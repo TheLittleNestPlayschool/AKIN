@@ -68,3 +68,7 @@ export async function login({email,password}){
 export async function bootstrap(){
   return request("/w_bootstrap",{authenticated:true});
 }
+
+export async function getAcquisitionExperience(slug){
+  return request(`/w_acquisition_experience?slug=${encodeURIComponent(slug)}`);
+}
