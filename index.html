@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +21,11 @@
     <div class="grain" aria-hidden="true"></div>
     <!--   acquisition-->
     <section class="acquisition-world" id="acquisitionWorld" aria-hidden="true" hidden>
+      <div class="acquisition-backdrop" aria-hidden="true">
+        <span class="acquisition-backdrop-layer is-visible" id="acquisitionBackdropA"></span>
+        <span class="acquisition-backdrop-layer" id="acquisitionBackdropB"></span>
+        <span class="acquisition-backdrop-wash"></span>
+      </div>
       <div class="acquisition-stage-wrap">
         <span class="acquisition-progress" id="acquisitionProgress"></span>
         <div class="acquisition-stage" id="acquisitionStage"></div>
@@ -29,9 +33,11 @@
     </section>
     <!--   login-->
     <section class="login-world" id="loginWorld" aria-label="AKIN sign in">
-      <div class="login-brand"><span class="brand-mark">AKIN</span><h1>A little space that feels like yours.</h1><p>Come in when you’re ready.</p></div>
+      <div class="login-acquisition-art" aria-hidden="true"></div>
+      <div class="login-brand login-brand-default"><span class="brand-mark">AKIN</span><h1>A little space that feels like yours.</h1><p>Come in when you’re ready.</p></div>
+      <div class="login-brand login-brand-acquisition"><span class="brand-mark">AKIN</span><h1>Keep this space for yourself.</h1><p>AKIN can remember the patterns, people, goals and parts of life that matter to you — and become more useful as it gets to know you.</p></div>
       <div class="login-card">
-        <div class="login-choice" id="loginChoice"><button class="entry-button entry-primary" id="showSignIn" type="button">Sign in</button><button class="entry-button entry-secondary" id="showCreate" type="button">Create an account</button></div>
+        <div class="login-choice" id="loginChoice"><button class="entry-button entry-primary" id="showCreate" type="button">Create my AKIN</button><button class="entry-button entry-secondary" id="showSignIn" type="button">I already have one</button></div>
         <form class="login-form" id="signInForm" hidden><div class="form-heading"><button class="form-back" type="button" data-login-back aria-label="Back">←</button><div><span class="form-kicker">Welcome back</span><h2>Sign in to AKIN</h2></div></div><label>Email<input type="email" autocomplete="email" placeholder="you@example.com" required></label><label>Password<input type="password" autocomplete="current-password" placeholder="••••••••" required></label><button class="entry-button entry-primary" type="submit">Continue</button></form>
         <form class="login-form" id="createForm" hidden><div class="form-heading"><button class="form-back" type="button" data-login-back aria-label="Back">←</button><div><span class="form-kicker">A new space</span><h2>Create your AKIN</h2></div></div><label>First name<input type="text" autocomplete="given-name" placeholder="Your name" required></label><label>Email<input type="email" autocomplete="email" placeholder="you@example.com" required></label><label>Password<input type="password" autocomplete="new-password" placeholder="Create a password" required></label><button class="entry-button entry-primary" type="submit">Begin</button></form>
       </div>
