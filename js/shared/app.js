@@ -1,6 +1,6 @@
-
 import{setupLogin}from"./login.js";
 import{applyTimeAtmosphere}from"./atmosphere.js";
+import{setupAcquisitionMode}from"../acquisition/mode.js";
 import{setupPublicMode}from"../public/mode.js";
 import{setupPrivateMode}from"../private/mode.js";
 import{setupPrivateOnboarding}from"../private/onboarding.js";
@@ -10,6 +10,7 @@ const app=document.getElementById("app");
 const publicMode=setupPublicMode();
 const privateMode=setupPrivateMode({app,publicMode});
 const privateOnboarding=setupPrivateOnboarding();
+const acquisitionMode=setupAcquisitionMode();
 setupPrivateEntry({publicMode,privateMode});
 
 setupLogin({
@@ -22,3 +23,10 @@ setupLogin({
 });
 
 applyTimeAtmosphere();
+
+if(acquisitionMode.hasEntry()){
+  acquisitionMode.start().catch(error=>{
+    console.error("Unable to load acquisition experience",error);
+    document.getElementById("loginWorld").hidden=false;
+  });
+}
