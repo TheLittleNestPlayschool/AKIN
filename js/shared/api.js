@@ -1,6 +1,6 @@
 
 /*   xano api*/
-const API_BASE="https://x8ki-letl-twmt.n7.xano.io/api:mvp-admin";
+const API_BASE="https://x8ki-letl-twmt.n7.xano.io/api:esjA0pTg";
 const tokenKey="akin_auth_token";
 
 async function request(path,{method="GET",body=null,authenticated=false}={}){
